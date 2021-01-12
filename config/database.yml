@@ -5,16 +5,16 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: mysql2
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  host: 127.0.0.1
 
 development:
-  host: localhost
-  adapter: postgresql
-  database: db_twitter
-  username: postgres
-  password: root
+  <<: *default
+  database: twitter
+  username: root
+  password: Ttaann_66
   pool: 5
   # <<: *default
   # database: db/development.sqlite3
@@ -24,8 +24,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
-
+  database: twitter_test
+  username: root
+  password: Ttaann_66
+  
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: twitter_prod
