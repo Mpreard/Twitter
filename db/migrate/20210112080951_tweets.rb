@@ -11,25 +11,25 @@ class Tweets < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    create_table :tweets do |t|
-      t.text :tweet
-      t.belong_to :user
-      t.timestamp
-    end
+      create_table :tweets do |t|
+        t.text :tweet
+        t.belongs_to :user
+        t.timestamps
+      end
 
-    create_table :comments do |t|
-      t.text :comment
-      t.belong_to :user
-      t.belong_to :tweet
-      t.timestamp
-    end
+      create_table :comments do |t|
+        t.text :comment
+        t.belongs_to :user
+        t.belongs_to :tweet
+        t.timestamps
+      end
 
-    create_table :likes do |t|
-      t.integer :like
-      t.belong_to :user
-      t.belong_to :tweet
-      t.timestamp
-    end
+      create_table :likes do |t|
+        t.integer :like
+        t.belongs_to :user
+        t.belongs_to :tweet
+        t.timestamps
+      end
 
   end
 end
